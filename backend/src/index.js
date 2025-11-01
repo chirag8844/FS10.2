@@ -4,11 +4,15 @@ import cors from "cors";
 import connectDB from "./config/db.js";
 import routes from "./routes/collect.js"; 
 import postRoutes from "./routes/posts.js";
+import commentRoutes from "./routes/comments.js";
+
+
 
 dotenv.config();
 connectDB();
 
 const app = express();
+app.use("/comments", commentRoutes);
 app.use(cors());
 app.use(express.json());
 
